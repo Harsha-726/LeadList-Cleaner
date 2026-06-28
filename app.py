@@ -131,7 +131,7 @@ def verify_and_normalize_email(email_address, premium_features):
 st.set_page_config(page_title="Local Lead Optimizer", page_icon="📊", layout="wide")
 st.title("Lead List Optimizer")
 st.markdown("Clean, correct, and verify your B2B lead lists locally.")
-st.markdown("Visit https://anakonda7.gumroad.com/l/kyjkoj to purchase pro.")
+st.markdown("Visit https://anakonda7.gumroad.com/l/kyjkoj to purchase.")
 st.divider()
 
 if 'is_premium' not in st.session_state:
@@ -225,7 +225,7 @@ dedup_toggle = st.sidebar.checkbox("Remove Duplicate Emails", value=True)
 fix_names_toggle = st.sidebar.checkbox("Auto-Fix Name Capitalization", value=True)
 drop_garbage_toggle = st.sidebar.checkbox("Filter Garbage Records (???, test, n/a)", value=True)
 
-st.sidebar.header("🚀 Pro Features")
+st.sidebar.header("Pro Features")
 if st.session_state.is_premium:
     auto_correct = st.sidebar.checkbox("Auto-Correct Domain Typos", value=True)
     catch_all_check = st.sidebar.checkbox("Flag Catch-All Domains", value=True)
@@ -242,7 +242,7 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     initial_row_count = len(df)
     
-    st.subheader("📋 Original File Preview")
+    st.subheader("Original File Preview")
     st.dataframe(df.head(5), use_container_width=True)
     
     df.columns = df.columns.str.strip().str.lower()
@@ -253,7 +253,7 @@ if uploaded_file is not None:
     else:
         is_allowed = True
         if st.session_state.license_tier == "Free":
-            st.warning("⚠️ Free preview mode. Enter a valid key in the sidebar to clean.")
+            st.warning("Free preview mode. Enter a valid key in the sidebar to clean.")
             is_allowed = False
         elif st.session_state.license_tier == "Single Pass" and initial_row_count > SINGLE_PASS_ROW_LIMIT:
             st.error(f"Single Sheet limits files to {SINGLE_PASS_ROW_LIMIT} rows. Yours has {initial_row_count}.")
@@ -312,7 +312,7 @@ if uploaded_file is not None:
                 col3.metric("Duplicates Removed", duplicates_removed)
                 col4.metric("Valid Leads", len(df[df['validation_status'] == 'Valid']))
                     
-                st.subheader("🔍 Cleaned Data")
+                st.subheader("Cleaned Data")
                 st.dataframe(df, use_container_width=True)
                 
                 csv_bytes = df.to_csv(index=False).encode('utf-8')
