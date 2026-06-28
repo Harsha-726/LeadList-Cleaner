@@ -164,8 +164,9 @@ def process_single_email(email_address, premium_features):
 # --- 4. STREAMLIT UI ---
 st.set_page_config(page_title="Local Lead Optimizer", page_icon="📊", layout="wide")
 st.title("Lead List Optimizer")
+st.markdown("Clean, correct, and verify your  lead lists locally.")
 st.markdown("Clean, correct, and verify your B2B lead lists locally.")
-st.divider()
+st.divider("Visit https://anakonda7.gumroad.com/l/kyjkoj to purchase a subscription")
 
 if 'is_premium' not in st.session_state:
     st.session_state.is_premium = False
