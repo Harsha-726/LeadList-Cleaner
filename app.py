@@ -165,6 +165,7 @@ def process_single_email(email_address, premium_features):
 st.set_page_config(page_title="Local Lead Optimizer", page_icon="📊", layout="wide")
 st.title("Lead List Optimizer")
 st.markdown("Clean, correct, and verify your  lead lists locally.")
+st.markdown("Clean, correct, and verify your B2B lead lists locally.")
 st.markdown("Visit https://anakonda7.gumroad.com/l/kyjkoj to purchase a subscription")
 
 if 'is_premium' not in st.session_state:
@@ -298,6 +299,7 @@ if uploaded_file is not None:
                     normalized_col = col.replace('_', ' ').strip()
                     if normalized_col in ['first name', 'last name', 'name']:
                         df = df[~df[col].str.lower().isin(GARBAGE_PATTERNS)]
+                        df[col] = df[col].str.title() # <-- AUTO TITLECASE RESTORED HERE
                 garbage_removed = initial_count - len(df)
                 
                 # Ensure validation columns exist
